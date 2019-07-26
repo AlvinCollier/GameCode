@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Written by Alvin Lee Collier, Dragoon Domain
-//Free for commercial/non-commercial use
+//Free for commercial/non-commercial use with credit given
 //This script is designed to be attatched to a panel with a text object as a child
 //
 
