@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/* By Alvin Lee Collier, Dragoon Domain 
+ * 
+ * Useable for commercial or non commerical projects.
+ * 
+ * For use in games where numeric pop ups (such as damage in rpg games) will be needed.
+ * You will need to instantiate a prfab with a TextMesh and a Rigidbody 2D
+ * From the script that instanciates the object you can set the text in the text mesh with a function like this
+ * 
+     public void ShowPopUpDamageNumbers(float dmg)
+        {
+            GameObject popUpNum = Instantiate(popUpNumbers, performList[0].attackerTarget.transform, false);
+            popUpNum.GetComponent<TextMesh>().text = dmg.ToString();
+        }
+ * 
+ */
+
+public class PopUpNumberController : MonoBehaviour {
+
+    public float moveSpeed;
+    public float lifeTime;
+
+	//The Numbers will pop up when spawned, then the gravity effect of the rigidbody will do the rest.
+	void Start () {
+
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveSpeed);
+        StartCoroutine(DestroySelfAfterTime());
+	}
+
+    //Runs a co routine to allow numbers to stay on screen for enough time to be read and understood.
+    IEnumerator DestroySelfAfterTime()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        Destroy(this.gameObject);
+        yield return null;
+    }
+	
+
+}
