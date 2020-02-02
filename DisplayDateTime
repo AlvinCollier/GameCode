@@ -95,7 +95,7 @@ public class DisplayDateTime : MonoBehaviour
         //put a 'st, 'nd, 'rd or 'th at the end of the day number
         //define i as the index number of the character looked at to determine the ending.
         int i;
-        if (dateTimeSplit[1].ToCharArray().Length < 1)
+        if (dateTimeSplit[1].ToCharArray().Length < 2)
         {
             i = 0;
         }
